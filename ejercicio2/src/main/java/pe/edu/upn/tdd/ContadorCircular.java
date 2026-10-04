@@ -15,5 +15,8 @@ public class ContadorCircular {
         return valor;
     }
 
+    public void incrementa() {
+        valor++;
+    }
 }
 
