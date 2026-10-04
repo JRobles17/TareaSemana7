@@ -34,4 +34,6 @@ public class ContadorCircular {
     public void resetea() {
         valor = inicial;
     }
+
+    
 }
