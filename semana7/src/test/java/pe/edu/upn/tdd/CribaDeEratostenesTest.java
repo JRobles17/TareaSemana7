@@ -25,4 +25,12 @@ public class CribaDeEratostenesTest {
     void calculaConTres() {
         assertEquals(List.of(2, 3), CribaDeEratostenes.calcula(3));
     }
+
+    @Test
+    void creaListaDeNumerosSinMarcarTieneTopeMasUnoElementosEnFalse() {
+        List<Boolean> marcados = CribaDeEratostenes.creaListaDeNumerosSinMarcar(4);
+
+        assertEquals(5, marcados.size());
+        assertTrue(marcados.stream().noneMatch(m -> m));
+    }
 }
