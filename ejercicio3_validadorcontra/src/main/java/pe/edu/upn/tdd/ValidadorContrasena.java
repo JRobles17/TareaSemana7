@@ -7,6 +7,9 @@ public class ValidadorContrasena {
     
     public static List<String> validar(String clave) {
         List<String> errores = new ArrayList<>();
+        if (clave == null) {
+            throw new IllegalArgumentException("La clave no puede ser null");
+        }
         if (clave.length() < 8) {
             errores.add("Debe tener al menos 8 caracteres");
         }
