@@ -24,4 +24,11 @@ class ContadorCircularTest {
         contador.incrementa();
         assertEquals(1, contador.getValor());
     }
+
+    @Test
+    void incrementarContadorDeCincoEnCincoPasaDe5A10() {
+        ContadorCircular contador = new ContadorCircular(5, 5, 12);
+        contador.incrementa();
+        assertEquals(10, contador.getValor());
+    }
 }
