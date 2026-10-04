@@ -56,4 +56,18 @@ class ContadorCircularTest {
         assertFalse(deCincoEnCincoLimite12.incrementa()); // 10
         assertTrue(deCincoEnCincoLimite12.incrementa());  // 15 > 12
     }
+
+    @Test
+    void alSuperarElLimiteVuelveAlValorInicialCero() {
+        porDefectoLimite1.incrementa();
+        porDefectoLimite1.incrementa();
+        assertEquals(0, porDefectoLimite1.getValor());
+    }
+
+    @Test
+    void alSuperarElLimiteVuelveAlValorInicialCinco() {
+        deCincoEnCincoLimite12.incrementa();
+        deCincoEnCincoLimite12.incrementa();
+        assertEquals(5, deCincoEnCincoLimite12.getValor());
+    }
 }
