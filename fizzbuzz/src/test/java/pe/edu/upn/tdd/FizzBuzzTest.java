@@ -32,4 +32,8 @@ public class FizzBuzzTest {
         assertEquals("Buzz", FizzBuzz.convertir(10));
     }
 
+    @Test
+    void convertirQuinceDevuelveFizzBuzz() {
+        assertEquals("FizzBuzz", FizzBuzz.convertir(15));
+    }
 }
