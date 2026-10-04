@@ -70,4 +70,11 @@ class ContadorCircularTest {
         deCincoEnCincoLimite12.incrementa();
         assertEquals(5, deCincoEnCincoLimite12.getValor());
     }
+
+    @Test
+    void resetearDevuelveElContadorAlValorInicial() {
+        deCincoEnCincoLimite12.incrementa();
+        deCincoEnCincoLimite12.resetea();
+        assertEquals(5, deCincoEnCincoLimite12.getValor());
+    }
 }
