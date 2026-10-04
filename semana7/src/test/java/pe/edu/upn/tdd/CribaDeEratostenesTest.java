@@ -3,8 +3,10 @@ package pe.edu.upn.tdd;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
 public class CribaDeEratostenesTest {
     @Test
@@ -16,5 +18,11 @@ public class CribaDeEratostenesTest {
     @Test
     void calculaConDos() {
         assertEquals(List.of(2), CribaDeEratostenes.calcula(2));
+    }
+
+    @Test
+    @Disabled("Pendiente: se activará al terminar el algoritmo")
+    void calculaConTres() {
+        assertEquals(List.of(2, 3), CribaDeEratostenes.calcula(3));
     }
 }
