@@ -1,6 +1,7 @@
 package pe.edu.upn.tdd;
 
 public class ContadorCircular {
+    private int inicial;
     private int valor;
     private int incremento;
     private int limite;
@@ -10,6 +11,7 @@ public class ContadorCircular {
     }
 
     public ContadorCircular(int inicial, int incremento, int limite) {
+        this.inicial = inicial;
         this.valor = inicial;
         this.incremento = incremento;
         this.limite = limite;
@@ -21,6 +23,10 @@ public class ContadorCircular {
 
     public boolean incrementa() {
         valor += incremento;
-        return valor > limite;
+        boolean limiteSuperado = valor > limite;
+        if (limiteSuperado) {
+            valor = inicial;
+        }
+        return limiteSuperado;
     }
 }
