@@ -88,4 +88,9 @@ class ContadorCircularTest {
     void crearConIncrementoNegativoLanzaExcepcion() {
         assertThrows(IllegalArgumentException.class, () -> new ContadorCircular(0, -3, 10));
     }
+
+    @Test
+    void crearConLimiteMenorQueInicialLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class, () -> new ContadorCircular(10, 1, 5));
+    }
 }
