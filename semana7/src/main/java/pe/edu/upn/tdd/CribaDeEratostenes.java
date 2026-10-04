@@ -12,5 +12,12 @@ public class CribaDeEratostenes {
         }
         return primos;
     }
-    
+
+    static List<Boolean> creaListaDeNumerosSinMarcar(int n) {
+        List<Boolean> marcados = new ArrayList<>();
+        for (int i = 0; i <= n; i++) {
+            marcados.add(false);
+        }
+        return marcados;
+    }
 }
