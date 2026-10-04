@@ -20,6 +20,9 @@ public class ContadorCircular {
         if (incremento <= 0) {
             throw new IllegalArgumentException("El incremento debe ser positivo");
         }
+        if (limite < inicial) {
+            throw new IllegalArgumentException("El límite no puede ser menor que el inicial");
+        }
     }
 
     public int getValor() {
