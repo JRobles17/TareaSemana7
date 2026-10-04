@@ -28,4 +28,14 @@ public class CribaDeEratostenes {
             }
         }
     }
+
+    static List<Integer> creaListaDePrimos(List<Boolean> marcados) {
+        List<Integer> primos = new ArrayList<>();
+        for (int i = 2; i < marcados.size(); i++) {
+            if (!marcados.get(i)) {
+                primos.add(i);
+            }
+        }
+        return primos;
+    }
 }
