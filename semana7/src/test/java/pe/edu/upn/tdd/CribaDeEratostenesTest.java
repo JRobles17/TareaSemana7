@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class CribaDeEratostenesTest {
     @Test
@@ -21,7 +22,6 @@ public class CribaDeEratostenesTest {
     }
 
     @Test
-    @Disabled("Pendiente: se activará al terminar el algoritmo")
     void calculaConTres() {
         assertEquals(List.of(2, 3), CribaDeEratostenes.calcula(3));
     }
@@ -51,5 +51,29 @@ public class CribaDeEratostenesTest {
         CribaDeEratostenes.marcarMultiplos(marcados);
 
         assertEquals(List.of(2, 3), CribaDeEratostenes.creaListaDePrimos(marcados));
+    }
+
+    @ParameterizedTest(name = "n = {0} devuelve lista vacía")
+    @ValueSource(ints = {-5, 0, 1})
+    void calculaConNMenorQueDosDevuelveListaVacia(int n) {
+        assertTrue(CribaDeEratostenes.calcula(n).isEmpty());
+    }
+
+    @Test
+    void calculaHastaOnceIncluyeElOnce() {
+        assertEquals(List.of(2, 3, 5, 7, 11), CribaDeEratostenes.calcula(11));
+    }
+
+    @Test
+    void calculaHastaDoceNoAgregaNuevoPrimo() {
+        assertEquals(List.of(2, 3, 5, 7, 11), CribaDeEratostenes.calcula(12));
+    }
+
+    @Test
+    void calculaHastaCienDevuelveVeinticincoPrimos() {
+        List<Integer> primos = CribaDeEratostenes.calcula(100);
+
+        assertEquals(25, primos.size());
+        assertEquals(97, (int) primos.get(primos.size() - 1));
     }
 }
