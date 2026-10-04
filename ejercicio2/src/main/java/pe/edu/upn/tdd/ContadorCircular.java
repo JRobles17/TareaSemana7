@@ -1,9 +1,19 @@
 package pe.edu.upn.tdd;
 
 public class ContadorCircular {
-    public ContadorCircular(int limite) { }
 
-    public int getValor() {
-        return 0;
+        private int valor;
+
+    public ContadorCircular(int limite) {
+        this(0, 1, limite);
     }
+
+    public ContadorCircular(int inicial, int incremento, int limite) {
+        this.valor = inicial;
+    }
+        public int getValor() {
+        return valor;
+    }
+
 }
+
