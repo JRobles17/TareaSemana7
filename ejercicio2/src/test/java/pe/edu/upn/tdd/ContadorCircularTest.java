@@ -2,33 +2,39 @@ package pe.edu.upn.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ContadorCircularTest {
-    
+
+    private ContadorCircular porDefectoLimite1;
+    private ContadorCircular deCincoEnCincoLimite12;
+
+    @BeforeEach
+    void setUp() {
+        porDefectoLimite1 = new ContadorCircular(1);
+        deCincoEnCincoLimite12 = new ContadorCircular(5, 5, 12);
+    }
+
     @Test
     void contadorPorDefectoEmpiezaEnCero() {
-        ContadorCircular contador = new ContadorCircular(10);
-        assertEquals(0, contador.getValor());
+        assertEquals(0, porDefectoLimite1.getValor());
     }
 
     @Test
     void contadorConValorInicialCincoEmpiezaEnCinco() {
-        ContadorCircular contador = new ContadorCircular(5, 5, 12);
-        assertEquals(5, contador.getValor());
+        assertEquals(5, deCincoEnCincoLimite12.getValor());
     }
 
     @Test
     void incrementarContadorPorDefectoSumaUno() {
-        ContadorCircular contador = new ContadorCircular(10);
-        contador.incrementa();
-        assertEquals(1, contador.getValor());
+        porDefectoLimite1.incrementa();
+        assertEquals(1, porDefectoLimite1.getValor());
     }
 
     @Test
     void incrementarContadorDeCincoEnCincoPasaDe5A10() {
-        ContadorCircular contador = new ContadorCircular(5, 5, 12);
-        contador.incrementa();
-        assertEquals(10, contador.getValor());
+        deCincoEnCincoLimite12.incrementa();
+        assertEquals(10, deCincoEnCincoLimite12.getValor());
     }
 }
