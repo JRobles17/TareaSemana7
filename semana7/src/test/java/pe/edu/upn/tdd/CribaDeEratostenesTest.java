@@ -44,4 +44,12 @@ public class CribaDeEratostenesTest {
         assertFalse(marcados.get(3));
         assertTrue(marcados.get(4));
     }
+
+    @Test
+    void creaListaDePrimosHasta4DevuelveDosYTres() {
+        List<Boolean> marcados = CribaDeEratostenes.creaListaDeNumerosSinMarcar(4);
+        CribaDeEratostenes.marcarMultiplos(marcados);
+
+        assertEquals(List.of(2, 3), CribaDeEratostenes.creaListaDePrimos(marcados));
+    }
 }
