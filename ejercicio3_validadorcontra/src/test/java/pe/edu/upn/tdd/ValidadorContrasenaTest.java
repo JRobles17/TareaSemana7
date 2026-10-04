@@ -32,4 +32,12 @@ public class ValidadorContrasenaTest {
                 ValidadorContrasena.validar("SeguraSinNum"));
     }
     
+    @Test
+    void claveConTodosLosErroresDevuelveLosTresMensajes() {
+        assertEquals(List.of(
+                "Debe tener al menos 8 caracteres",
+                "Debe tener al menos una mayúscula",
+                "Debe tener al menos un dígito"),
+                ValidadorContrasena.validar("abc"));
+    }
 }
