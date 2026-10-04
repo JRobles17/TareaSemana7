@@ -29,4 +29,8 @@ public class ContadorCircular {
         }
         return limiteSuperado;
     }
+
+    public void resetea() {
+        valor = inicial;
+    }
 }
