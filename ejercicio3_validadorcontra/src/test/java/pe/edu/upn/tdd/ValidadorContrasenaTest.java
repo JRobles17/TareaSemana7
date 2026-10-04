@@ -31,7 +31,7 @@ public class ValidadorContrasenaTest {
         assertEquals(List.of("Debe tener al menos un dígito"),
                 ValidadorContrasena.validar("SeguraSinNum"));
     }
-    
+
     @Test
     void claveConTodosLosErroresDevuelveLosTresMensajes() {
         assertEquals(List.of(
@@ -39,5 +39,16 @@ public class ValidadorContrasenaTest {
                 "Debe tener al menos una mayúscula",
                 "Debe tener al menos un dígito"),
                 ValidadorContrasena.validar("abc"));
+    }
+
+    @Test
+    void claveDeExactamenteOchoCaracteresEsValida() {
+        assertTrue(ValidadorContrasena.validar("Abcdefg1").isEmpty());
+    }
+
+    @Test
+    void claveDeExactamenteSieteCaracteresEsInvalida() {
+        assertEquals(List.of("Debe tener al menos 8 caracteres"),
+                ValidadorContrasena.validar("Abcdef1"));
     }
 }
