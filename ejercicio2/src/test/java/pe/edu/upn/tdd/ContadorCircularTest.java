@@ -93,4 +93,10 @@ class ContadorCircularTest {
     void crearConLimiteMenorQueInicialLanzaExcepcion() {
         assertThrows(IllegalArgumentException.class, () -> new ContadorCircular(10, 1, 5));
     }
+
+    @Test
+    void crearConLimiteIgualAlInicialSeCreaCorrectamente() {
+        ContadorCircular contador = new ContadorCircular(5, 1, 5);
+        assertEquals(5, contador.getValor());
+    }
 }
