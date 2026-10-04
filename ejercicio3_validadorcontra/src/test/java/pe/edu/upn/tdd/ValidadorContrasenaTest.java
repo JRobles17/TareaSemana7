@@ -25,4 +25,11 @@ public class ValidadorContrasenaTest {
         assertEquals(List.of("Debe tener al menos una mayúscula"),
                 ValidadorContrasena.validar("segura123"));
     }
+
+    @Test
+    void claveSinDigitoDevuelveError() {
+        assertEquals(List.of("Debe tener al menos un dígito"),
+                ValidadorContrasena.validar("SeguraSinNum"));
+    }
+    
 }
