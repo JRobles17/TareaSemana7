@@ -6,9 +6,11 @@ import java.util.List;
 public class ValidadorContrasena {
     
     public static List<String> validar(String clave) {
-        return new ArrayList<>();
+        List<String> errores = new ArrayList<>();
+        if (clave.length() < 8) {
+            errores.add("Debe tener al menos 8 caracteres");
+        }
+        return errores;
     }
 
-
-    
 }
