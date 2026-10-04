@@ -11,4 +11,10 @@ class ContadorCircularTest {
         ContadorCircular contador = new ContadorCircular(10);
         assertEquals(0, contador.getValor());
     }
+    
+    @Test
+    void contadorConValorInicialCincoEmpiezaEnCinco() {
+        ContadorCircular contador = new ContadorCircular(5, 5, 12);
+        assertEquals(5, contador.getValor());
+    }
 }
