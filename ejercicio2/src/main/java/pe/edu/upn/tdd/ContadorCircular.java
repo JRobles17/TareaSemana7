@@ -11,11 +11,15 @@ public class ContadorCircular {
         this(0, 1, limite);
     }
 
+    
     public ContadorCircular(int inicial, int incremento, int limite) {
         this.inicial = inicial;
         this.incremento = incremento;
         this.limite = limite;
         this.valor = inicial;
+        if (incremento == 0) {
+            throw new IllegalArgumentException("El incremento no puede ser 0");
+        }
     }
 
     public int getValor() {
@@ -35,5 +39,5 @@ public class ContadorCircular {
         valor = inicial;
     }
 
-    
+
 }
