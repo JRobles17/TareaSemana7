@@ -20,4 +20,12 @@ public class CribaDeEratostenes {
         }
         return marcados;
     }
+
+    static void marcarMultiplos(List<Boolean> marcados) {
+        for (int num = 2; num < marcados.size(); num++) {
+            for (int mul = num * 2; mul < marcados.size(); mul += num) {
+                marcados.set(mul, true);
+            }
+        }
+    }
 }
