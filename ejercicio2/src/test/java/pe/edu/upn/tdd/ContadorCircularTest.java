@@ -1,6 +1,7 @@
 package pe.edu.upn.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,5 +37,10 @@ class ContadorCircularTest {
     void incrementarContadorDeCincoEnCincoPasaDe5A10() {
         deCincoEnCincoLimite12.incrementa();
         assertEquals(10, deCincoEnCincoLimite12.getValor());
+    }
+
+    @Test
+    void alAlcanzarElLimiteNoLoSupera() {
+        assertFalse(porDefectoLimite1.incrementa());
     }
 }
