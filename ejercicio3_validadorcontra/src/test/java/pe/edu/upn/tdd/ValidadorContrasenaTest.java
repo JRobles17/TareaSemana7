@@ -2,6 +2,7 @@ package pe.edu.upn.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
@@ -50,5 +51,10 @@ public class ValidadorContrasenaTest {
     void claveDeExactamenteSieteCaracteresEsInvalida() {
         assertEquals(List.of("Debe tener al menos 8 caracteres"),
                 ValidadorContrasena.validar("Abcdef1"));
+    }
+
+    @Test
+    void claveNullLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class, () -> ValidadorContrasena.validar(null));
     }
 }
