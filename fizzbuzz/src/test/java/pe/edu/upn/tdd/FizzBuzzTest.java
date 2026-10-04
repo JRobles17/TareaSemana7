@@ -21,5 +21,9 @@ public class FizzBuzzTest {
         assertEquals("Fizz", FizzBuzz.convertir(3));
     }
 
+    @Test
+    void convertirCincoDevuelveBuzz() {
+        assertEquals("Buzz", FizzBuzz.convertir(5));
+    }
 
 }
