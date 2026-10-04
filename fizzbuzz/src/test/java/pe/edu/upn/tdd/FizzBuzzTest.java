@@ -1,6 +1,7 @@
 package pe.edu.upn.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -35,5 +36,11 @@ public class FizzBuzzTest {
     @Test
     void convertirQuinceDevuelveFizzBuzz() {
         assertEquals("FizzBuzz", FizzBuzz.convertir(15));
+    }
+
+    @Test
+    void convertirCeroYNegativoLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class, () -> FizzBuzz.convertir(0));
+        assertThrows(IllegalArgumentException.class, () -> FizzBuzz.convertir(-3));
     }
 }
