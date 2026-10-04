@@ -19,4 +19,10 @@ public class ValidadorContrasenaTest {
         assertEquals(List.of("Debe tener al menos 8 caracteres"),
                 ValidadorContrasena.validar("Abc1"));
     }
+
+    @Test
+    void claveSinMayusculaDevuelveError() {
+        assertEquals(List.of("Debe tener al menos una mayúscula"),
+                ValidadorContrasena.validar("segura123"));
+    }
 }
