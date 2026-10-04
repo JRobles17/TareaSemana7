@@ -17,7 +17,9 @@ public class ContadorCircular {
         return valor;
     }
 
-    public void incrementa() {
+    public boolean incrementa() {
         valor += incremento;
+        return false;
     }
+    
 }
