@@ -10,6 +10,9 @@ public class ValidadorContrasena {
         if (clave.length() < 8) {
             errores.add("Debe tener al menos 8 caracteres");
         }
+        if (clave.chars().noneMatch(Character::isUpperCase)) {
+            errores.add("Debe tener al menos una mayúscula");
+        }
         return errores;
     }
 
