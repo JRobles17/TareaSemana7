@@ -3,44 +3,29 @@ package pe.edu.upn.tdd;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
-public class FizzBuzzTest {
+class FizzBuzzTest {
 
-    @Test
-    void convertirUnoDevuelveUno() {
-        assertEquals("1", FizzBuzz.convertir(1));
+    @ParameterizedTest(name = "convertir({0}) = {1}")
+    @CsvSource({
+        "1, 1",
+        "2, 2",
+        "3, Fizz",
+        "5, Buzz",
+        "6, Fizz",
+        "10, Buzz",
+        "15, FizzBuzz"
+    })
+    void convierteCorrectamente(int n, String esperado) {
+        assertEquals(esperado, FizzBuzz.convertir(n));
     }
 
-    @Test
-    void convertirDosDevuelveDos() {
-        assertEquals("2", FizzBuzz.convertir(2));
-    }
-
-    @Test
-    void convertirTresDevuelveFizz() {
-        assertEquals("Fizz", FizzBuzz.convertir(3));
-    }
-
-    @Test
-    void convertirCincoDevuelveBuzz() {
-        assertEquals("Buzz", FizzBuzz.convertir(5));
-    }
-
-    @Test
-    void convertirSeisYDiezDevuelveFizzYBuzz() {
-        assertEquals("Fizz", FizzBuzz.convertir(6));
-        assertEquals("Buzz", FizzBuzz.convertir(10));
-    }
-
-    @Test
-    void convertirQuinceDevuelveFizzBuzz() {
-        assertEquals("FizzBuzz", FizzBuzz.convertir(15));
-    }
-
-    @Test
-    void convertirCeroYNegativoLanzaExcepcion() {
-        assertThrows(IllegalArgumentException.class, () -> FizzBuzz.convertir(0));
-        assertThrows(IllegalArgumentException.class, () -> FizzBuzz.convertir(-3));
+    @ParameterizedTest(name = "convertir({0}) lanza excepción")
+    @ValueSource(ints = {0, -3})
+    void noPositivoLanzaExcepcion(int n) {
+        assertThrows(IllegalArgumentException.class, () -> FizzBuzz.convertir(n));
     }
 }
