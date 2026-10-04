@@ -13,6 +13,11 @@ public class ValidadorContrasena {
         if (clave.chars().noneMatch(Character::isUpperCase)) {
             errores.add("Debe tener al menos una mayúscula");
         }
+        if (clave.chars().noneMatch(Character::isDigit)) {
+            errores.add("Debe tener al menos un dígito");
+        }
+
+
         return errores;
     }
 
