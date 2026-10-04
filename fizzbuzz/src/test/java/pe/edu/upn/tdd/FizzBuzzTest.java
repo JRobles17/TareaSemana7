@@ -26,4 +26,10 @@ public class FizzBuzzTest {
         assertEquals("Buzz", FizzBuzz.convertir(5));
     }
 
+    @Test
+    void convertirSeisYDiezDevuelveFizzYBuzz() {
+        assertEquals("Fizz", FizzBuzz.convertir(6));
+        assertEquals("Buzz", FizzBuzz.convertir(10));
+    }
+
 }
