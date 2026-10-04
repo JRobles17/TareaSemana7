@@ -2,7 +2,7 @@ package pe.edu.upn.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -32,5 +32,16 @@ public class CribaDeEratostenesTest {
 
         assertEquals(5, marcados.size());
         assertTrue(marcados.stream().noneMatch(m -> m));
+    }
+
+    @Test
+    void marcarMultiplosHasta4MarcaSoloEl4() {
+        List<Boolean> marcados = CribaDeEratostenes.creaListaDeNumerosSinMarcar(4);
+
+        CribaDeEratostenes.marcarMultiplos(marcados);
+
+        assertFalse(marcados.get(2));
+        assertFalse(marcados.get(3));
+        assertTrue(marcados.get(4));
     }
 }
